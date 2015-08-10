@@ -15,20 +15,16 @@ public class ChatManager {
 	}
 
 	public void publish(ChatSocket cs,String out){
-		if(out.startsWith("MY_NAME_IS")){
-			cs.name = out.substring(10);
-			System.out.println(cs.name);
-		}
-		else{
+//		if(out.startsWith("MY_NAME_IS")){
+//			cs.name = out.substring(10);
+//			System.out.println(cs.name);
+//		}
+//		else{
 		for(int i = 0;i<vector.size();i++){
 			ChatSocket csnew = vector.get(i);
-			if(out.startsWith(csnew.name))
-			{
-				csnew.cout(cs.name+": "+out.substring(csnew.name.length()));
+			if(!csnew.equals(cs)){
+			csnew.cout(out);
 			}
-
-		
 		}
 		}
 	}
-}
